@@ -1,0 +1,2 @@
+# HStudio-Website
+[![Netlify Status](https://api.netlify.com/api/v1/badges/89023abd-e9b7-4130-a85f-03d1163d21d4/deploy-status)](https://app.netlify.com/sites/dreamy-tartufo-1a41e5/deploys)
