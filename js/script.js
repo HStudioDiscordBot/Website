@@ -130,6 +130,43 @@ function docsLoad() {
     loader.style.display = 'none';
 }
 
+function inviteSystemLoad() {
+    var queryString = window.location.search;
+
+        queryString = queryString.slice(1);
+
+        var queryParams = queryString.split("&");
+
+        var params = {};
+
+        queryParams.forEach(function (queryParam) {
+            var keyValue = queryParam.split("=");
+            var key = decodeURIComponent(keyValue[0]);
+            var value = decodeURIComponent(keyValue[1]);
+            params[key] = value;
+        });
+
+        var inviteUrl = [
+            "https://discord.com/oauth2/authorize?client_id=1105873690022924450&scope=bot%20applications.commands&permissions=36825160",
+            "https://discord.com/oauth2/authorize?client_id=1140130682094497823&scope=bot%20applications.commands&permissions=36825160",
+        ];
+        const redirectUrl = document.getElementById('redirectUrl');
+
+        if (params.bot === "0") {
+            window.location = inviteUrl[0];
+
+            redirectUrl.href = inviteUrl[0];
+        } else if (params.bot === "1") {
+            window.location = inviteUrl[1];
+
+            redirectUrl.href = inviteUrl[1];
+        } else {
+            const redirectText = document.getElementById('redirectText');
+
+            redirectText.innerText = "Unavailable URL";
+        }
+}
+
 function getCookie(name) {
     const cookies = document.cookie.split('; ');
     for (let i = 0; i < cookies.length; i++) {
