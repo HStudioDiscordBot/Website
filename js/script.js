@@ -18,7 +18,7 @@ function preloadAssets(assetsToPreload) {
 }
 
 function mainInvite() {
-    var width = 600;
+    var width = 500;
     var height = 800;
     var left = (window.innerWidth - width) / 2;
     var top = (window.innerHeight - height) / 2;
@@ -124,28 +124,6 @@ function inviteLoad() {
 }
 
 function docsLoad() {
-    const docsBody = document.getElementById('docsBody');
-
-    // script.js
-
-    const toggleButton = document.querySelector('.toggle-button');
-    const sidebar = document.querySelector('.sidebar');
-    const content = document.querySelector('.content');
-
-    toggleButton.addEventListener('click', () => {
-
-        sidebar.style.left = '0';
-        content.style.marginLeft = '250px';
-        loadScreen.style.display = 'none';
-
-    });
-
-    loadScreen.addEventListener('click', () => {
-        sidebar.style.left = '0';
-        content.style.marginLeft = '250px';
-        loadScreen.style.display = 'none';
-    });
-
     const loadScreen = document.getElementById('loadScreen');
     const loader = document.getElementById('loader');
     loadScreen.style.display = 'none';
