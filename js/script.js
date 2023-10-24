@@ -19,7 +19,7 @@ function preloadAssets(assetsToPreload) {
 
 function mainInvite() {
     var width = 500;
-    var height = 800;
+    var height = 850;
     var left = (window.innerWidth - width) / 2;
     var top = (window.innerHeight - height) / 2;
     var features = "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top;
