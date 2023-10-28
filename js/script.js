@@ -59,6 +59,8 @@ async function statusLoad() {
 
     await updateStatus(status);
 
+    setInterval(StatusFetchUpdate, 10*1000)
+
     const loadScreen = document.getElementById('loadScreen');
     const loader = document.getElementById('loader');
     loadScreen.style.display = 'none';
@@ -294,6 +296,12 @@ async function updateStatus(status) {
         }
 
     }
+}
+
+async function StatusFetchUpdate() {
+    const status = await fetchStatus();
+
+    await updateStatus(status);
 }
 
 async function fetchStatus() {
