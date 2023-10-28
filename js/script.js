@@ -290,7 +290,7 @@ async function updateStatus(status) {
             card.appendChild(shardID);
             card.appendChild(shardStatus);
 
-            statusData0.appendChild(card);
+            statusData1.appendChild(card);
         }
 
     }
