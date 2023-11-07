@@ -24,7 +24,7 @@ function mainInvite() {
     var top = (window.innerHeight - height) / 2;
     var features = "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top;
 
-    var popup = window.open('/invite.html', "Invite", features);
+    var popup = window.open('/en/invite.html', "Invite", features);
 
     if (popup) {
         popup.focus();
@@ -36,7 +36,7 @@ function mainDiscordSupport() {
 }
 
 function mainDocs() {
-    location.href = '/docs.html';
+    location.href = '/en/docs.html';
 }
 
 async function mainLoad() {
@@ -107,7 +107,7 @@ function inviteLoad() {
 
         h2.innerText = info.name;
 
-        btn.innerText = `เชิญ ${info.name}`
+        btn.innerText = `Invite ${info.name}`
         btn.className = "navMainBtn w-auto";
         btn.onclick = () => {
             location.href = info.inviteUrl;
@@ -220,8 +220,7 @@ async function updateStatus(status) {
             shardID.className = 'genText';
             shardID.innerText = `Shard: undefined`;
             shardStatus.className = 'offlineText';
-            shardStatus.innerText = 'ไม่สามารถเข้าถึงบอทได้';
-
+            shardStatus.innerText = "Can't Connect to Server";
 
             card.appendChild(shardID);
             card.appendChild(shardStatus);
@@ -238,8 +237,7 @@ async function updateStatus(status) {
             shardID.className = 'genText';
             shardID.innerText = `Shard: undefined`;
             shardStatus.className = 'offlineText';
-            shardStatus.innerText = 'ไม่สามารถเข้าถึงบอทได้';
-
+            shardStatus.innerText = "Can't Connect to Server";
 
             card.appendChild(shardID);
             card.appendChild(shardStatus);
@@ -267,10 +265,10 @@ async function updateStatus(status) {
                 shardID.innerText = `Shard: ${shard.id}`;
                 if (shard.online) {
                     shardStatus.className = 'onlineText';
-                    shardStatus.innerText = 'ออนไลน์';
+                    shardStatus.innerText = 'Online';
                 } else {
                     shardStatus.className = 'offlineText';
-                    shardStatus.innerText = 'ออฟไลน์';
+                    shardStatus.innerText = 'Offline';
                 }
 
                 card.appendChild(shardID);
@@ -288,7 +286,7 @@ async function updateStatus(status) {
             shardID.innerText = `Shard: all`;
 
             shardStatus.className = 'offlineText';
-            shardStatus.innerText = 'ออฟไลน์';
+            shardStatus.innerText = 'Offline';
 
             card.appendChild(shardID);
             card.appendChild(shardStatus);
@@ -308,10 +306,10 @@ async function updateStatus(status) {
                 shardID.innerText = `Shard: ${shard.id}`;
                 if (shard.online) {
                     shardStatus.className = 'onlineText';
-                    shardStatus.innerText = 'ออนไลน์';
+                    shardStatus.innerText = 'Online';
                 } else {
                     shardStatus.className = 'offlineText';
-                    shardStatus.innerText = 'ออฟไลน์';
+                    shardStatus.innerText = 'Offline';
                 }
 
                 card.appendChild(shardID);
@@ -329,7 +327,7 @@ async function updateStatus(status) {
             shardID.innerText = `Shard: all`;
 
             shardStatus.className = 'offlineText';
-            shardStatus.innerText = 'ออฟไลน์';
+            shardStatus.innerText = 'Offline';
 
             card.appendChild(shardID);
             card.appendChild(shardStatus);
@@ -393,13 +391,13 @@ if (version) {
     
                     document.cookie = `version=${data.hstudio[0].version}; expires=${expirationDate.toUTCString()}; path=/`;
                 }
-                version.innerHTML = `(เวอร์ชั่น ${data.hstudio[0].version})`;
+                version.innerHTML = `(Version ${data.hstudio[0].version})`;
             })
             .catch(error => {
                 version.innerHTML = "Can't Load Version";
                 console.error(error.message);
             });
     } else {
-        version.innerHTML = `(เวอร์ชั่น ${versionRaw})`;
+        version.innerHTML = `(Version ${versionRaw})`;
     }
 }
