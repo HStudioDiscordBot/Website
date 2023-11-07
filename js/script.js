@@ -40,18 +40,10 @@ function mainDocs() {
 }
 
 async function mainLoad() {
-    const prelaodimg = [
-        "/image/HStudio.png",
-        "/image/HStudio/1.png",
-    ];
-
-    preloadAssets(prelaodimg);
-
     const loadScreen = document.getElementById('loadScreen');
     const loader = document.getElementById('loader');
     loadScreen.style.display = 'none';
     loader.style.display = 'none';
-
 }
 
 async function statusLoad() {
