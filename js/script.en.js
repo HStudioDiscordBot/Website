@@ -1,4 +1,6 @@
 const version = document.getElementById('mainVersion');
+const hstudioVersion0 = document.getElementById('0Version');
+const hstudioVersion1 = document.getElementById('1Version');
 const loader = document.getElementById('loader');
 
 function delay(ms) {
@@ -362,6 +364,44 @@ function formatBytes(bytes) {
         return (bytes / mb).toFixed(2) + ' MB';
     } else {
         return (bytes / gb).toFixed(2) + ' GB';
+    }
+}
+
+if (hstudioVersion0 || hstudioVersion1) {
+    let version0 = getCookie('hstudioversion0');
+    let version1 = getCookie('hstudioversion1');
+
+    if (!version0 || !version1) {
+        fetch("https://api.hewkawar.xyz/app/hstudio/info")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.hstudio[0].version) {
+                    const expirationDate = new Date();
+                    expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000);
+    
+                    document.cookie = `hstudioversion0=${data.hstudio[0].version}; expires=${expirationDate.toUTCString()}; path=/`;
+                }
+                if (data.hstudio[1].version) {
+                    const expirationDate = new Date();
+                    expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000);
+    
+                    document.cookie = `hstudioversion1=${data.hstudio[1].version}; expires=${expirationDate.toUTCString()}; path=/`;
+                }
+                hstudioVersion0.innerHTML = `(Version ${data.hstudio[0].version})`;
+                hstudioVersion1.innerHTML = `(Version ${data.hstudio[1].version})`;
+            })
+            .catch(error => {
+                version.innerHTML = "Can't Load Version";
+                console.error(error.message);
+            });
+    } else {
+        hstudioVersion0.innerHTML = `(Version ${version0})`;
+        hstudioVersion1.innerHTML = `(Version ${version1})`;
     }
 }
 
