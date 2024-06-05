@@ -1,5 +1,4 @@
 # HStudio Website
-[![Netlify Status](https://api.netlify.com/api/v1/badges/89023abd-e9b7-4130-a85f-03d1163d21d4/deploy-status)](https://app.netlify.com/sites/hstudio-by-hdbp/deploys)
 ![Cloud](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 ![Brave](https://img.shields.io/badge/Brave-FF1B2D?style=for-the-badge&logo=Brave&logoColor=white)
 ![Firefox](https://img.shields.io/badge/Firefox_Browser-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white)
