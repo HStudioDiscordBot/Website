@@ -38,7 +38,7 @@ function mainDiscordSupport() {
 }
 
 function mainDocs() {
-    location.href = '/en/docs.html';
+    location.href = 'https://docs.hstudio.hewkawar.xyz/';
 }
 
 async function mainLoad() {
