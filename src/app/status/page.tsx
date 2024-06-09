@@ -48,24 +48,24 @@ export default function Status() {
 
     return (
         <>
-            <div className="flex">
-                <div className="bg-[#414141] mx-2 p-8 text-center rounded">
+            <div className="flex flex-wrap justify-center">
+                <div className="bg-[#414141] m-2 p-8 text-center rounded">
                     <p>Server</p>
                     <p>{serverName}</p>
                 </div>
-                <div className="bg-[#414141] mx-2 p-8 text-center rounded">
+                <div className="bg-[#414141] m-2 p-8 text-center rounded">
                     <p>CPU</p>
                     <p>{cpu}</p>
                 </div>
-                <div className="bg-[#414141] mx-2 p-8 text-center rounded">
+                <div className="bg-[#414141] m-2 p-8 text-center rounded">
                     <p>RAM</p>
                     <p>{ram}</p>
                 </div>
-                <div className="bg-[#414141] mx-2 p-8 text-center rounded">
+                <div className="bg-[#414141] m-2 p-8 text-center rounded">
                     <p>Player</p>
                     <p>{player}</p>
                 </div>
-                <div className="bg-[#414141] mx-2 p-8 text-center rounded">
+                <div className="bg-[#414141] m-2 p-8 text-center rounded">
                     <p>Active Player</p>
                     <p>{activePlayer}</p>
                 </div>
@@ -73,7 +73,7 @@ export default function Status() {
 
             <div className="my-5">
                 <div className="text-center">
-                    <h1 className="text-4xl mb-5">HStudio Main (เวอร์ชั่น {mainVersion})</h1>
+                    <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (เวอร์ชั่น {mainVersion})</h1>
                     <div className="flex justify-center">
                         {
                             mainShards.map((value: any, index) => (
@@ -86,7 +86,7 @@ export default function Status() {
                     </div>
                 </div>
                 <div className="text-center">
-                    <h1 className="text-4xl mb-5">HStudio 1 (เวอร์ชั่น {subVersion})</h1>
+                    <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (เวอร์ชั่น {subVersion})</h1>
                     <div className="flex justify-center">
                         {
                             subShards.map((value: any, index) => (
