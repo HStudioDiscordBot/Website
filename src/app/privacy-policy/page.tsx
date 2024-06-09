@@ -4,8 +4,7 @@ export default function PrivacyPolicy() {
     return (
         <div className="w-[70vw]">
             <h1 className="text-4xl text-[#5c9ae0]">นโยบายข้อมูลส่วนตัว</h1>
-            <h3 className="text-3xl">ข้อตกลงนี้ระบุถึงบอทดิสคอร์ด "HStudio" หรือกล่าวได้ว่า "บอทที่อยู่ในเครือ HewkawDiscordBotProject"
-                หากผู้ใดใช้งานบอทในเครือ "HewkawDiscordBotProject" ถือว่ายอมรับการเก็บข้อมูลดังต่อไปนี้</h3>
+            <h3 className="text-3xl">ข้อตกลงนี้ระบุถึงบอทดิสคอร์ด &quot;HStudio&quot; หรือกล่าวได้ว่า &quot;บอทที่อยู่ในเครือ HewkawDiscordBotProject&quot; หากผู้ใดใช้งานบอทในเครือ &quot;HewkawDiscordBotProject&quot; ถือว่ายอมรับการเก็บข้อมูลดังต่อไปนี้</h3>
             <ul className="list-disc ml-8">
                 <li>จำนวนผู้ใช้งานบอท</li>
                 <li>ห้องดิสที่บอทอยู่</li>

@@ -44,7 +44,7 @@ export default function Status() {
         setSubShards(value.hstudio.sub.shards);
     }
 
-    useEffect(getStatus, []);
+    useEffect(getStatus);
 
     return (
         <>
