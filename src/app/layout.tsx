@@ -8,6 +8,7 @@ const inter = Prompt({ subsets: ["thai"], weight: "500" });
 export const metadata: Metadata = {
   title: "HStudio",
   description: "บอทเพลงที่สร้างมาสำหรับทุกคน ! | บอท, บอทเพลง, บอทเพลงดิส, บอทเพลงดิสคอร์ด, บอทเพลง Discord, Discord, Discord Bot, discord bot, discord music bot, bot music, bot music discord, บอทเปิดเพลงในดิส, บอทเพลง ดิส, บอทเพลง ดิสคอร์ด, บอทเพลง Dis, บอทเปิดเพลงในไทย, บอทเพลงไทย, บอทเพลงดิสไทย",
+  keywords: "บอท, บอทเพลง, บอทเพลงดิส, บอทเพลงดิสคอร์ด, บอทเพลง Discord, Discord, Discord Bot, discord bot, discord music bot, bot music, bot music discord, บอทเปิดเพลงในดิส, บอทเพลง ดิส, บอทเพลง ดิสคอร์ด, บอทเพลง Dis, บอทเปิดเพลงในไทย, บอทเพลงไทย, บอทเพลงดิสไทย",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
