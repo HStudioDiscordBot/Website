@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: https://hstudio.hewkawar.xyz/sitemap_index.xml
