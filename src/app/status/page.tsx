@@ -12,6 +12,9 @@ export default function Status() {
     const [mainVersion, setHStudioMainVersion] = useState("Loading...");
     const [subVersion, setHStudioSubVersion] = useState("Loading...");
 
+    const [mainError, setMainError] = useState(false);
+    const [subError, setSubError] = useState(false);
+
     const [mainShards, setMainShards] = useState([]);
     const [subShards, setSubShards] = useState([]);
 
@@ -37,14 +40,30 @@ export default function Status() {
         setPlayer(value.stats.players.toLocaleString());
         setActivePlayer(value.stats.playingPlayers.toLocaleString());
 
-        setHStudioMainVersion(value.hstudio.main.version)
-        setHStudioSubVersion(value.hstudio.sub.version)
+        setHStudioMainVersion(value.hstudio.main.version);
+        setHStudioSubVersion(value.hstudio.sub.version);
 
-        setMainShards(value.hstudio.main.shards);
-        setSubShards(value.hstudio.sub.shards);
+        if (value.hstudio.main.error == 500) {
+            setMainError(true);
+        } else {
+            setMainError(false);
+        }
+        if (value.hstudio.sub.error == 500) {
+            setSubError(true);
+        } else {
+            setSubError(false);
+        }
+
+        if (value.hstudio.main.shards.length) setMainShards(value.hstudio.main.shards);
+        if (value.hstudio.sub.shards) setSubShards(value.hstudio.sub.shards);
     }
 
-    useEffect(getStatus);
+    useEffect(() => {
+        getStatus();
+        const interval = setInterval(getStatus, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <>
@@ -76,12 +95,17 @@ export default function Status() {
                     <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (เวอร์ชั่น {mainVersion})</h1>
                     <div className="flex justify-center">
                         {
-                            mainShards.map((value: any, index) => (
+                            mainError ? (
+                                <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
+                                    <p>Unavailable</p>
+                                    <p className="text-[#f73c7a]">ออฟไลน์</p>
+                                </div>
+                            ) : (mainShards.map((value: any, index) => (
                                 <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
                                     <p>Shard: {index}</p>
                                     {value.online ? (<p className="text-[#3cf783]">ออนไลน์</p>) : (<p className="text-[#f73c7a]">ออฟไลน์</p>)}
                                 </div>
-                            ))
+                            )))
                         }
                     </div>
                 </div>
@@ -89,12 +113,17 @@ export default function Status() {
                     <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (เวอร์ชั่น {subVersion})</h1>
                     <div className="flex justify-center">
                         {
-                            subShards.map((value: any, index) => (
+                            subError ? (
+                                <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
+                                    <p>Unavailable</p>
+                                    <p className="text-[#f73c7a]">ออฟไลน์</p>
+                                </div>
+                            ) : (subShards.map((value: any, index) => (
                                 <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
                                     <p>Shard: {index}</p>
                                     {value.online ? (<p className="text-[#3cf783]">ออนไลน์</p>) : (<p className="text-[#f73c7a]">ออฟไลน์</p>)}
                                 </div>
-                            ))
+                            )))
                         }
                     </div>
                 </div>
