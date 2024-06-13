@@ -22,6 +22,7 @@ export default function Home() {
 
   return (
     <>
+      <title>หน้าแรก | HStudio</title>
       <div className="bg-[#414141] w-[100vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] rounded flex flex-col items-center p-5 mt-10 text-wrap text-center">
         <img src="/HStudio.webp" width={300} height={300} alt="HStudio Logo" />
         <h1 className="text-4xl mt-3">HStudio (เวอร์ชั่น {version})</h1>

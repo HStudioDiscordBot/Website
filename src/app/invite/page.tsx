@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function Invite() {
     return (
         <>
+            <title>เชิญบอท | HStudio</title>
             <h1 className="text-2xl lg:text-4xl">บอทในเครือ HStudio</h1>
             <div className="flex flex-raw flex-wrap justify-center">
                 <div className="bg-[#414141] p-5 flex rounded m-5">
