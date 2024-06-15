@@ -1,8 +1,11 @@
 "use client";
 
+import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
 
 export default function Status() {
+    const currentLanguage = getCookie("language");
+
     const [serverName, setServerName] = useState("Loading...");
     const [cpu, setCpu] = useState("Loading...");
     const [ram, setRam] = useState("Loading...");
@@ -67,71 +70,145 @@ export default function Status() {
 
     return (
         <>
-            <title>สถานะบอท | HStudio</title>
-            <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
-                <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">สถานะบอท</h1>
-            </div>
-            <div className="flex flex-wrap justify-center">
-                <div className="bg-[#414141] m-2 p-8 text-center rounded">
-                    <p>Server</p>
-                    <p>{serverName}</p>
-                </div>
-                <div className="bg-[#414141] m-2 p-8 text-center rounded">
-                    <p>CPU</p>
-                    <p>{cpu}</p>
-                </div>
-                <div className="bg-[#414141] m-2 p-8 text-center rounded">
-                    <p>RAM</p>
-                    <p>{ram}</p>
-                </div>
-                <div className="bg-[#414141] m-2 p-8 text-center rounded">
-                    <p>Player</p>
-                    <p>{player}</p>
-                </div>
-                <div className="bg-[#414141] m-2 p-8 text-center rounded">
-                    <p>Active Player</p>
-                    <p>{activePlayer}</p>
-                </div>
-            </div>
+            {
+                currentLanguage == "thai" ? (
+                    <>
+                        <title>สถานะบอท | HStudio</title>
+                        <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
+                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">สถานะบอท</h1>
+                        </div>
+                        <div className="flex flex-wrap justify-center">
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>เซิร์ฟเวอร์</p>
+                                <p>{serverName}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>CPU</p>
+                                <p>{cpu}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>RAM</p>
+                                <p>{ram}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>Player</p>
+                                <p>{player}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>Active Player</p>
+                                <p>{activePlayer}</p>
+                            </div>
+                        </div>
 
-            <div className="my-5">
-                <div className="text-center">
-                    <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (เวอร์ชั่น {mainVersion})</h1>
-                    <div className="flex justify-center">
-                        {
-                            mainError ? (
-                                <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
-                                    <p>Unavailable</p>
-                                    <p className="text-[#f73c7a]">ออฟไลน์</p>
+                        <div className="my-5">
+                            <div className="text-center">
+                                <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (เวอร์ชั่น {mainVersion})</h1>
+                                <div className="flex justify-center">
+                                    {
+                                        mainError ? (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
+                                                <p>ไม่สามารถเข้าถึงบอทได้</p>
+                                                <p className="text-[#f73c7a]">ออฟไลน์</p>
+                                            </div>
+                                        ) : (mainShards.map((value: any, index) => (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
+                                                <p>Shard: {index}</p>
+                                                {value.online ? (<p className="text-[#3cf783]">ออนไลน์</p>) : (<p className="text-[#f73c7a]">ออฟไลน์</p>)}
+                                            </div>
+                                        )))
+                                    }
                                 </div>
-                            ) : (mainShards.map((value: any, index) => (
-                                <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
-                                    <p>Shard: {index}</p>
-                                    {value.online ? (<p className="text-[#3cf783]">ออนไลน์</p>) : (<p className="text-[#f73c7a]">ออฟไลน์</p>)}
+                            </div>
+                            <div className="text-center">
+                                <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (เวอร์ชั่น {subVersion})</h1>
+                                <div className="flex justify-center">
+                                    {
+                                        subError ? (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
+                                                <p>ไม่สามารถเข้าถึงบอทได้</p>
+                                                <p className="text-[#f73c7a]">ออฟไลน์</p>
+                                            </div>
+                                        ) : (subShards.map((value: any, index) => (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
+                                                <p>Shard: {index}</p>
+                                                {value.online ? (<p className="text-[#3cf783]">ออนไลน์</p>) : (<p className="text-[#f73c7a]">ออฟไลน์</p>)}
+                                            </div>
+                                        )))
+                                    }
                                 </div>
-                            )))
-                        }
-                    </div>
-                </div>
-                <div className="text-center">
-                    <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (เวอร์ชั่น {subVersion})</h1>
-                    <div className="flex justify-center">
-                        {
-                            subError ? (
-                                <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
-                                    <p>Unavailable</p>
-                                    <p className="text-[#f73c7a]">ออฟไลน์</p>
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <title>Status | HStudio</title>
+                        <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
+                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">Status</h1>
+                        </div>
+                        <div className="flex flex-wrap justify-center">
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>Server</p>
+                                <p>{serverName}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>CPU</p>
+                                <p>{cpu}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>RAM</p>
+                                <p>{ram}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>Player</p>
+                                <p>{player}</p>
+                            </div>
+                            <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                                <p>Active Player</p>
+                                <p>{activePlayer}</p>
+                            </div>
+                        </div>
+
+                        <div className="my-5">
+                            <div className="text-center">
+                                <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (Version {mainVersion})</h1>
+                                <div className="flex justify-center">
+                                    {
+                                        mainError ? (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
+                                                <p>Unavailable</p>
+                                                <p className="text-[#f73c7a]">Offline</p>
+                                            </div>
+                                        ) : (mainShards.map((value: any, index) => (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
+                                                <p>Shard: {index}</p>
+                                                {value.online ? (<p className="text-[#3cf783]">Online</p>) : (<p className="text-[#f73c7a]">Offline</p>)}
+                                            </div>
+                                        )))
+                                    }
                                 </div>
-                            ) : (subShards.map((value: any, index) => (
-                                <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
-                                    <p>Shard: {index}</p>
-                                    {value.online ? (<p className="text-[#3cf783]">ออนไลน์</p>) : (<p className="text-[#f73c7a]">ออฟไลน์</p>)}
+                            </div>
+                            <div className="text-center">
+                                <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (Version {subVersion})</h1>
+                                <div className="flex justify-center">
+                                    {
+                                        subError ? (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
+                                                <p>Unavailable</p>
+                                                <p className="text-[#f73c7a]">Offline</p>
+                                            </div>
+                                        ) : (subShards.map((value: any, index) => (
+                                            <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
+                                                <p>Shard: {index}</p>
+                                                {value.online ? (<p className="text-[#3cf783]">Online</p>) : (<p className="text-[#f73c7a]">Offline</p>)}
+                                            </div>
+                                        )))
+                                    }
                                 </div>
-                            )))
-                        }
-                    </div>
-                </div>
-            </div>
+                            </div>
+                        </div>
+                    </>
+                )
+            }
         </>
     )
 }
