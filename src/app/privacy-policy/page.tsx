@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
                     <>
                         <title>นโยบายข้อมูลส่วนตัว | HStudio</title>
                         <div className="w-[95vw] lg:w-[70vw] text-wrap mt-10">
-                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">นโยบายข้อมูลส่วนตัว</h1>
+                            <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">นโยบายข้อมูลส่วนตัว</h1>
                             <h3 className="text-xl lg:text-2xl">ข้อตกลงนี้ระบุถึงบอทดิสคอร์ด &quot;HStudio&quot; หรือกล่าวได้ว่า &quot;บอทที่อยู่ในเครือ HStudio&quot; หากผู้ใดใช้งานบอทในเครือ &quot;HStudio&quot; ถือว่ายอมรับการเก็บข้อมูลดังต่อไปนี้</h3>
                             <ul className="list-disc ml-8">
                                 <li>จำนวนผู้ใช้งานบอท</li>
@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
                     <>
                         <title>Privacy Policy | HStudio</title>
                         <div className="w-[95vw] lg:w-[70vw] text-wrap mt-10">
-                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">Privacy Policy</h1>
+                            <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">Privacy Policy</h1>
                             <h3 className="text-xl lg:text-2xl">This applies to those who use &quot;HStudio&quot; or &quot;Any Discord Bots From HStudio&quot; and agree to have &quot;HStudio&quot; collecting the following data.</h3>
                             <ul className="list-disc ml-8">
                                 <li>The number of people using the bot.</li>

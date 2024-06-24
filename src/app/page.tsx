@@ -31,9 +31,9 @@ export default function Home() {
             <img src="/HStudio.webp" width={300} height={300} alt="HStudio Logo" />
             <h1 className="text-4xl mt-3">HStudio (เวอร์ชั่น {version})</h1>
             <div className="p-5 flex flex-wrap justify-center">
-              <Link href="/invite" className="p-3 mx-2 text-[#5c9ae0] hover:bg-[#3d4c61] rounded transition-colors duration-150">เชิญบอท</Link>
-              <Link href="https://discord.gg/yYydJ2tpcZ" target="_blank" className="p-3 mx-2 text-[#5c9ae0] hover:bg-[#3d4c61] rounded transition-colors duration-150">ดิสช่วยเหลือ</Link>
-              <Link href="https://docs.hstudio.hewkawar.xyz/" target="_blank" className="p-3 mx-2 text-[#5c9ae0] hover:bg-[#3d4c61] rounded transition-colors duration-150">คู่มือการใช้งาน</Link>
+              <Link href="/invite" className="p-3 mx-2 text-[#7DB1ED] hover:bg-[#3d4c61] rounded transition-colors duration-150">เชิญบอท</Link>
+              <Link href="https://discord.gg/yYydJ2tpcZ" target="_blank" className="p-3 mx-2 text-[#7DB1ED] hover:bg-[#3d4c61] rounded transition-colors duration-150">ดิสช่วยเหลือ</Link>
+              <Link href="https://docs.hstudio.hewkawar.xyz/" target="_blank" className="p-3 mx-2 text-[#7DB1ED] hover:bg-[#3d4c61] rounded transition-colors duration-150">คู่มือการใช้งาน</Link>
             </div>
           </div>
         </>
@@ -44,9 +44,9 @@ export default function Home() {
             <img src="/HStudio.webp" width={300} height={300} alt="HStudio Logo" />
             <h1 className="text-4xl mt-3">HStudio (Version {version})</h1>
             <div className="p-5 flex flex-wrap justify-center">
-              <Link href="/invite" className="p-3 mx-2 text-[#5c9ae0] hover:bg-[#3d4c61] rounded transition-colors duration-150">Invite Bot</Link>
-              <Link href="https://discord.gg/yYydJ2tpcZ" target="_blank" className="p-3 mx-2 text-[#5c9ae0] hover:bg-[#3d4c61] rounded transition-colors duration-150">Support Server</Link>
-              <Link href="https://docs.hstudio.hewkawar.xyz/" target="_blank" className="p-3 mx-2 text-[#5c9ae0] hover:bg-[#3d4c61] rounded transition-colors duration-150">Document</Link>
+              <Link href="/invite" className="p-3 mx-2 text-[#7DB1ED] hover:bg-[#3d4c61] rounded transition-colors duration-150">Invite Bot</Link>
+              <Link href="https://discord.gg/yYydJ2tpcZ" target="_blank" className="p-3 mx-2 text-[#7DB1ED] hover:bg-[#3d4c61] rounded transition-colors duration-150">Support Server</Link>
+              <Link href="https://docs.hstudio.hewkawar.xyz/" target="_blank" className="p-3 mx-2 text-[#7DB1ED] hover:bg-[#3d4c61] rounded transition-colors duration-150">Document</Link>
             </div>
           </div>
         </>

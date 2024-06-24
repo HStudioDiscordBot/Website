@@ -75,7 +75,7 @@ export default function Status() {
                     <>
                         <title>สถานะบอท | HStudio</title>
                         <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
-                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">สถานะบอท</h1>
+                            <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">สถานะบอท</h1>
                         </div>
                         <div className="flex flex-wrap justify-center">
                             <div className="bg-[#414141] m-2 p-8 text-center rounded">
@@ -143,7 +143,7 @@ export default function Status() {
                     <>
                         <title>Status | HStudio</title>
                         <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
-                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">Status</h1>
+                            <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">Status</h1>
                         </div>
                         <div className="flex flex-wrap justify-center">
                             <div className="bg-[#414141] m-2 p-8 text-center rounded">

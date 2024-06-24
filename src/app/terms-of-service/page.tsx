@@ -12,7 +12,7 @@ export default function TermsOfService() {
                     <>
                         <title>ข้อกำหนดในการให้บริการ | HStudio</title>
                         <div className="w-[95vw] lg:w-[70vw] text-wrap mt-10">
-                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">ข้อกำหนดในการให้บริการ</h1>
+                            <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">ข้อกำหนดในการให้บริการ</h1>
                             <h3 className="text-xl lg:text-2xl">ข้อตกลงนี้ระบุถึงบอทดิสคอร์ด &quot;HStudio&quot; หรือกล่าวได้ว่า &quot;บอทที่อยู่ในเครือ HStudio&quot; หากผู้ใดใช้งานบอทในเครือ &quot;HewkawDiscordBotProject&quot; ถือว่ารับข้อตกลงดังต่อไปนี้</h3>
                             <ul className="list-disc ml-8">
                                 <li>บอทในเครือ &quot;HStudio&quot; ไม่รับประกันออนไลน์ 99.99</li>
@@ -28,7 +28,7 @@ export default function TermsOfService() {
                     <>
                         <title>Terms of Service | HStudio</title>
                         <div className="w-[95vw] lg:w-[70vw] text-wrap mt-10">
-                            <h1 className="text-2xl lg:text-4xl text-[#5c9ae0]">Terms of Service</h1>
+                            <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">Terms of Service</h1>
                             <h3 className="text-xl lg:text-2xl">This terms of service applies to those who use &quot;HStudio&quot; or &quot;Any Discord Bots From HStudio&quot; and agree to &quot;HStudio&quot; to these terms of service.</h3>
                             <ul className="list-disc ml-8">
                                 <li>All HStudio&apos;s bot do not guarantee to be online 99.99% all the time.</li>
