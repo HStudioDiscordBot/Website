@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
+Disallow: /auth/discord/
 Sitemap: https://hstudio.hewkawar.xyz/sitemap_index.xml
