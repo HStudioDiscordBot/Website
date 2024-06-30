@@ -18,7 +18,7 @@ export default function Home() {
       fetch("https://hstudio-api.hewkawar.xyz/info").then((res) => res.json()).then((value) => {
         setCookie("version", value.hstudio.main.version);
         setVersion(value.hstudio.main.version);
-      })
+      });
     }
   }, []);
 
@@ -27,7 +27,7 @@ export default function Home() {
       {currentLanguage == "thai" ? (
         <>
           <title>หน้าแรก | HStudio</title>
-          <div className="bg-[#414141] w-[100vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] rounded flex flex-col items-center p-5 mt-10 text-wrap text-center">
+          <div className="bg-[#414141] w-[100vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] rounded flex flex-col items-center p-5 mt-10 text-wrap text-center shadow-lg">
             <img src="/HStudio.webp" width={300} height={300} alt="HStudio Logo" />
             <h1 className="text-4xl mt-3">HStudio (เวอร์ชั่น {version})</h1>
             <div className="p-5 flex flex-wrap justify-center">
@@ -40,7 +40,7 @@ export default function Home() {
       ) : (
         <>
           <title>Home | HStudio</title>
-          <div className="bg-[#414141] w-[100vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] rounded flex flex-col items-center p-5 mt-10 text-wrap text-center">
+          <div className="bg-[#414141] w-[100vw] md:w-[80vw] lg:w-[60vw] xl:w-[40vw] rounded flex flex-col items-center p-5 mt-10 text-wrap text-center shadow-lg">
             <img src="/HStudio.webp" width={300} height={300} alt="HStudio Logo" />
             <h1 className="text-4xl mt-3">HStudio (Version {version})</h1>
             <div className="p-5 flex flex-wrap justify-center">
