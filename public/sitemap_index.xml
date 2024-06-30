@@ -6,27 +6,32 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://hstudio.hewkawar.xyz/</loc>
-  <lastmod>2024-06-15T04:40:16+00:00</lastmod>
+  <lastmod>2024-06-30T19:16:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://hstudio.hewkawar.xyz/status</loc>
-  <lastmod>2024-06-15T04:40:16+00:00</lastmod>
+  <lastmod>2024-06-30T19:16:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hstudio.hewkawar.xyz/store</loc>
+  <lastmod>2024-06-30T19:16:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://hstudio.hewkawar.xyz/terms-of-service</loc>
-  <lastmod>2024-06-15T04:40:16+00:00</lastmod>
+  <lastmod>2024-06-30T19:16:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://hstudio.hewkawar.xyz/privacy-policy</loc>
-  <lastmod>2024-06-15T04:40:16+00:00</lastmod>
+  <lastmod>2024-06-30T19:16:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://hstudio.hewkawar.xyz/invite</loc>
-  <lastmod>2024-06-15T04:40:16+00:00</lastmod>
+  <lastmod>2024-06-30T19:16:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 </urlset>
