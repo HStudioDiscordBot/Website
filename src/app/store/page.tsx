@@ -68,7 +68,7 @@ export default function Store() {
       if (result.isConfirmed) {
         Swal.fire({
           icon: "question",
-          title: currentLanguage == "thai" ? "ช่องทางการทำระเงิน" : "Payment Method",
+          title: currentLanguage == "thai" ? "ช่องทางการชำระเงิน" : "Payment Method",
           input: "select",
           inputOptions: {
             promptpay: currentLanguage == "thai" ? "พร้อมเพย์" : "Promptpay",
