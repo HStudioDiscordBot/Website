@@ -23,7 +23,9 @@ export default function Nav() {
     };
 
     const selectLanguage = (lang: string) => {
-        setCookie("language", lang);
+        setCookie("language", lang, {
+            maxAge: 14 * 24 * 60 * 60
+        });
         setIsOpenLanguageSelector(!isOpenLanguageSelector);
         router.refresh();
     };
