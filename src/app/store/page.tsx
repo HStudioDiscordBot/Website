@@ -232,11 +232,12 @@ export default function Store() {
         currentLanguage == "thai" ? (<title>ร้านค้า | HStudio</title>) : (<title>Store | HStudio</title>)
       }
 
-      {
-        itemList.length == 0 ? (<p>Loading items from store</p>) : (<>
+      <div className='mt-10 flex flex-wrap justify-center'>
+        {
+          itemList.length == 0 ? (<p>Loading items from store</p>) : (<>
             {
               itemList.map((value: any, index) => (
-                <div className="card bg-[#414141] p-4 rounded text-center" key={index}>
+                <div className="card bg-[#414141] p-4 rounded text-center m-3" key={index}>
                   <img src={value.image.url} className="w-96 rounded" alt={value.image.alt} />
                   <div className="text-left mt-2">
                     <h3 className="text-2xl">{value.title[currentLanguage || "english"]}</h3>
@@ -248,7 +249,8 @@ export default function Store() {
               ))
             }
           </>)
-      }
+        }
+      </div>
     </>
   )
 }
