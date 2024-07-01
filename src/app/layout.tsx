@@ -3,7 +3,7 @@ import { Prompt } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 
-const inter = Prompt({ subsets: ["thai"], weight: "500" });
+const prompt = Prompt({ subsets: ["thai"], weight: "500" });
 
 export const metadata: Metadata = {
   title: "HStudio",
@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`bg-[#282828] h-screen w-screen ${inter.className}`}>
+      <body className={`bg-[#282828] h-screen w-screen ${prompt.className}`}>
         <Nav />
         <main className="flex flex-col items-center justify-center text-white">
           {children}
