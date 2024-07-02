@@ -72,7 +72,7 @@ export default function Store() {
           input: "select",
           inputOptions: {
             promptpay: currentLanguage == "thai" ? "พร้อมเพย์" : "Promptpay",
-            // truemoneyVoucher: currentLanguage == "thai" ? "ลิ้งค์อั่งเปาทรูมันนี่" : "Truemoney Voucher"
+            truemoneyVoucher: currentLanguage == "thai" ? "ลิ้งค์อั่งเปาทรูมันนี่" : "Truemoney Voucher"
           },
           confirmButtonText: currentLanguage == "thai" ? "ยืนยัน" : "Confirm",
           cancelButtonText: currentLanguage == "thai" ? "ยกเลิก" : "Cancel",
