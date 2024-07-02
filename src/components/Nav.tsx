@@ -91,6 +91,7 @@ export default function Nav() {
                         <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/status">{currentLanguage == "thai" ? "สถานะบอท" : "Status"}</Link></li>
                         <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/terms-of-service">{currentLanguage == "thai" ? "ข้อกำหนดในการให้บริการ" : "Terms of Service"}</Link></li>
                         <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/privacy-policy">{currentLanguage == "thai" ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy"}</Link></li>
+                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/contact">{currentLanguage == "thai" ? "ติดต่อ" : "Contact"}</Link></li>
                     </ul>
 
                     <div className="text-white items-center text-center flex flex-col md:flex-row w-1/4 md:justify-end">
