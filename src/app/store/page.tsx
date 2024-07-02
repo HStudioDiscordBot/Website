@@ -185,6 +185,7 @@ export default function Store() {
 
                         form.append("method", "truemoney_voucher");
                         form.append("voucher_url", url);
+                        form.append("userId", account.id);
 
                         fetch(`https://hstudio-api.hewkawar.xyz/store/${itemId}/buy`, {
                           method: "POST",
