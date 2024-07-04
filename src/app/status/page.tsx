@@ -169,11 +169,11 @@ export default function Status() {
                     <div className="my-5">
                         <div className="text-center">
                             <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio Main (เวอร์ชั่น&nbsp;{mainVersion ? mainVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
-                            <BotShards error={mainError} lang={currentLanguage} shards={mainShards} />
+                            <BotShards error={mainError} lang={"thai"} shards={mainShards} />
                         </div>
                         <div className="text-center">
                             <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio 1 (เวอร์ชั่น&nbsp;{subVersion ? subVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
-                            <BotShards error={subError} lang={currentLanguage} shards={subShards} />
+                            <BotShards error={subError} lang={"thai"} shards={subShards} />
                         </div>
                     </div>
                 </>
@@ -212,48 +212,12 @@ export default function Status() {
 
                     <div className="my-5">
                         <div className="text-center">
-                        <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio Main (Version&nbsp;{mainVersion ? mainVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
-                        <div className="flex justify-center">
-                                {mainError ? (
-                                    <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
-                                        <p>Unavailable</p>
-                                        <p className="text-[#f73c7a]">Offline</p>
-                                    </div>
-                                ) : (
-                                    mainShards.map((value: any, index) => (
-                                        <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
-                                            <p>Shard: {index}</p>
-                                            {value.online ? (
-                                                <p className="text-[#3cf783]">Online</p>
-                                            ) : (
-                                                <p className="text-[#f73c7a]">Offline</p>
-                                            )}
-                                        </div>
-                                    ))
-                                )}
-                            </div>
+                            <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio Main (Version&nbsp;{mainVersion ? mainVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
+                            <BotShards error={mainError} lang={"english"} shards={mainShards} />
                         </div>
                         <div className="text-center">
-                        <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio 1 (Version&nbsp;{subVersion ? subVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
-                        <div className="flex justify-center">
-                                {subError ? (
-                                    <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
-                                        <p>Unavailable</p>
-                                        <p className="text-[#f73c7a]">Offline</p>
-                                    </div>
-                                ) : (
-                                    subShards.map((value: any, index) => (
-                                        <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
-                                            <p>Shard: {index}</p>
-                                            {value.online ? (
-                                                <p className="text-[#3cf783]">Online</p>
-                                            ) : (
-                                                <p className="text-[#f73c7a]">Offline</p>
-                                            )}
-                                        </div>
-                                    ))
-                                )}
-                            </div>
+                            <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio 1 (Version&nbsp;{subVersion ? subVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
+                            <BotShards error={subError} lang={"english"} shards={subShards} />
                         </div>
                     </div>
                 </>
