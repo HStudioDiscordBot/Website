@@ -35,7 +35,7 @@ export default function Store() {
           })
         });
       });
-  }, [account]);
+  }, [account, currentLanguage]);
 
   useEffect(() => {
     if (accessToken) {
