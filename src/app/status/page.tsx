@@ -202,34 +202,34 @@ export default function Status() {
                     <div className="flex flex-wrap justify-center">
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Server</p>
-                            <p>{serverName}</p>
+                            <p>{serverName ? serverName : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>CPU</p>
-                            <p>{cpu}</p>
+                            <p>{cpu ? cpu : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>RAM</p>
-                            <p>{ram}</p>
+                            <p>{ram ? ram : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Player</p>
-                            <p>{player}</p>
+                            <p>{player ? player : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Active Player</p>
-                            <p>{activePlayer}</p>
+                            <p>{activePlayer ? activePlayer : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Uptime</p>
-                            <p>{uptime}</p>
+                            <p>{uptime ? uptime : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                     </div>
 
                     <div className="my-5">
                         <div className="text-center">
-                            <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (Version {mainVersion})</h1>
-                            <div className="flex justify-center">
+                        <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio Main (Version&nbsp;{mainVersion ? mainVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
+                        <div className="flex justify-center">
                                 {mainError ? (
                                     <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
                                         <p>Unavailable</p>
@@ -250,8 +250,8 @@ export default function Status() {
                             </div>
                         </div>
                         <div className="text-center">
-                            <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (Version {subVersion})</h1>
-                            <div className="flex justify-center">
+                        <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio 1 (Version&nbsp;{subVersion ? subVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
+                        <div className="flex justify-center">
                                 {subError ? (
                                     <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
                                         <p>Unavailable</p>
