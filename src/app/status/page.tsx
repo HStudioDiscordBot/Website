@@ -44,17 +44,19 @@ export default function Status() {
         setPlayer(value.stats.players.toLocaleString());
         setActivePlayer(value.stats.playingPlayers.toLocaleString());
 
-        setHStudioMainVersion(value.hstudio.main.version);
-        setHStudioSubVersion(value.hstudio.sub.version);
 
         if (value.hstudio.main.error === 500) {
+            setHStudioMainVersion("Unavailable");
             setMainError(true);
         } else {
+            setHStudioMainVersion(value.hstudio.main.version);
             setMainError(false);
         }
         if (value.hstudio.sub.error === 500) {
+            setHStudioSubVersion("Unavailable");
             setSubError(true);
         } else {
+            setHStudioSubVersion(value.hstudio.sub.version);
             setSubError(false);
         }
 
