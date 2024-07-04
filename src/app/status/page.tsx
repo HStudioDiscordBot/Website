@@ -1,7 +1,9 @@
 "use client";
 
 import { getCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 function formatBytes(bytes: number) {
     if (bytes === 0) return '0 Bytes';
@@ -15,6 +17,7 @@ function formatBytes(bytes: number) {
 
 export default function Status() {
     const currentLanguage = getCookie("language");
+    const router = useRouter();
 
     const [serverName, setServerName] = useState("Loading...");
     const [cpu, setCpu] = useState("Loading...");
@@ -59,7 +62,18 @@ export default function Status() {
     const getStatus = useCallback(() => {
         fetch("https://hstudio-api.hewkawar.xyz/info")
             .then((res) => res.json())
-            .then((value) => updateStatus(value));
+            .then((value) => updateStatus(value)).catch((err) => {
+                Swal.fire({
+                  icon: "error",
+                  title: currentLanguage == "thai" ? "ไม่สามารถดึงข้อมูลบอทได้" : "Unable to retrieve bot information",
+                  text: currentLanguage == "thai" ? "กรุณาลองอีกครั้งภายหลัง" : "Please try again later.",
+                  confirmButtonText: currentLanguage == "thai" ? "ยืนยัน" : "Confirm",
+                  confirmButtonColor: "rgb(59 130 246)",
+                  willClose: ((popup) => {
+                    router.push("/")
+                  })
+                });
+              });
     }, []);
 
     function updateStatus(value: any) {
