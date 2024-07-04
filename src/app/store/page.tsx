@@ -13,8 +13,6 @@ export default function Store() {
   const accessToken = getCookie("access_token");
   const currentLanguage = getCookie("language");
 
-  const [isLoadLogined, setIsLoadLogined] = useState(false);
-  const [isLogined, setIsLogined] = useState(false);
   const [account, setAccount]: any = useState({});
   const [itemList, setItemList] = useState([]);
 
@@ -24,7 +22,19 @@ export default function Store() {
         Authorization: `UserId ${account.id}`
       }
     }).then((val) => val.json())
-      .then((data) => setItemList(data));
+      .then((data) => setItemList(data))
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: currentLanguage == "thai" ? "ไม่สามารถดึงข้อมูลสินค้าได้" : "Unable to retrieve product information",
+          text: currentLanguage == "thai" ? "กรุณาลองอีกครั้งภายหลัง" : "Please try again later.",
+          confirmButtonText: currentLanguage == "thai" ? "ยืนยัน" : "Confirm",
+          confirmButtonColor: "rgb(59 130 246)",
+          willClose: ((popup) => {
+            router.push("/")
+          })
+        });
+      });
   }, [account]);
 
   useEffect(() => {
@@ -36,12 +46,9 @@ export default function Store() {
       }).then((res) => res.ok ? res.json() : null).then((value) => {
         if (!value) {
           deleteCookie("access_token");
-          setIsLogined(false);
         } else {
-          setIsLogined(true);
           setAccount(value);
         }
-        setIsLoadLogined(true);
       })
     } else {
 
