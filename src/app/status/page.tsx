@@ -1,5 +1,7 @@
 "use client";
 
+import BotShards from "@/components/BotShards";
+import { Shard } from "@/interfaces/Shard";
 import { Skeleton } from "@mui/material";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
@@ -33,8 +35,8 @@ export default function Status() {
     const [mainError, setMainError] = useState(false);
     const [subError, setSubError] = useState(false);
 
-    const [mainShards, setMainShards] = useState([]);
-    const [subShards, setSubShards] = useState([]);
+    const [mainShards, setMainShards] = useState<Shard[]>([]);
+    const [subShards, setSubShards] = useState<Shard[]>([]);
 
     const [isFirstFetch, setIsFirstFetch] = useState(true);
 
@@ -167,47 +169,11 @@ export default function Status() {
                     <div className="my-5">
                         <div className="text-center">
                             <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio Main (เวอร์ชั่น&nbsp;{mainVersion ? mainVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
-                            <div className="flex justify-center">
-                                {mainError ? (
-                                    <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
-                                        <p>ไม่สามารถเข้าถึงบอทได้</p>
-                                        <p className="text-[#f73c7a]">ออฟไลน์</p>
-                                    </div>
-                                ) : (
-                                    mainShards.map((value: any, index) => (
-                                        <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
-                                            <p>Shard: {index}</p>
-                                            {value.online ? (
-                                                <p className="text-[#3cf783]">ออนไลน์</p>
-                                            ) : (
-                                                <p className="text-[#f73c7a]">ออฟไลน์</p>
-                                            )}
-                                        </div>
-                                    ))
-                                )}
-                            </div>
+                            <BotShards error={mainError} lang={currentLanguage} shards={mainShards} />
                         </div>
                         <div className="text-center">
                             <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio 1 (เวอร์ชั่น&nbsp;{subVersion ? subVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
-                            <div className="flex justify-center">
-                                {subError ? (
-                                    <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
-                                        <p>ไม่สามารถเข้าถึงบอทได้</p>
-                                        <p className="text-[#f73c7a]">ออฟไลน์</p>
-                                    </div>
-                                ) : (
-                                    subShards.map((value: any, index) => (
-                                        <div className="bg-[#414141] text-center py-5 px-10 rounded m-5" key={index}>
-                                            <p>Shard: {index}</p>
-                                            {value.online ? (
-                                                <p className="text-[#3cf783]">ออนไลน์</p>
-                                            ) : (
-                                                <p className="text-[#f73c7a]">ออฟไลน์</p>
-                                            )}
-                                        </div>
-                                    ))
-                                )}
-                            </div>
+                            <BotShards error={subError} lang={currentLanguage} shards={subShards} />
                         </div>
                     </div>
                 </>
