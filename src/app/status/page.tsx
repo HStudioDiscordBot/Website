@@ -58,7 +58,7 @@ export default function Status() {
             setSubError(false);
         }
 
-        if (value.hstudio.main.shards.length) setMainShards(value.hstudio.main.shards);
+        if (value.hstudio.main.shards) setMainShards(value.hstudio.main.shards);
         if (value.hstudio.sub.shards) setSubShards(value.hstudio.sub.shards);
     }
 
