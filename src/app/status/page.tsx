@@ -3,6 +3,16 @@
 import { getCookie } from "cookies-next";
 import { useCallback, useEffect, useState } from "react";
 
+function formatBytes(bytes: number) {
+    if (bytes === 0) return '0 Bytes';
+
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
 export default function Status() {
     const currentLanguage = getCookie("language");
 
@@ -11,6 +21,7 @@ export default function Status() {
     const [ram, setRam] = useState("Loading...");
     const [player, setPlayer] = useState("Loading...");
     const [activePlayer, setActivePlayer] = useState("Loading...");
+    const [uptime, setUptime] = useState("Loading...");
 
     const [mainVersion, setHStudioMainVersion] = useState("Loading...");
     const [subVersion, setHStudioSubVersion] = useState("Loading...");
@@ -21,14 +32,28 @@ export default function Status() {
     const [mainShards, setMainShards] = useState([]);
     const [subShards, setSubShards] = useState([]);
 
-    function formatBytes(bytes: number) {
-        if (bytes === 0) return '0 Bytes';
+    function convertUptime(milliseconds: number) {
+        let seconds = Math.floor(milliseconds / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
 
-        const k = 1024;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        seconds = seconds % 60;
+        minutes = minutes % 60;
+        hours = hours % 24;
 
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        let result = '';
+        if (currentLanguage == "thai") {
+            if (days > 0) result += `${days} วัน, `;
+            if (hours > 0) result += `${hours} ชั่วโมง, `;
+            if (minutes > 0) result += `${minutes} นาที`;
+        } else {
+            if (days > 0) result += `${days} day${days > 1 ? 's' : ''}, `;
+            if (hours > 0) result += `${hours} hour${hours > 1 ? 's' : ''}, `;
+            if (minutes > 0) result += `${minutes} minute${minutes > 1 ? 's' : ''}`;
+        }
+
+        return result.trim().replace(/,$/, '');
     }
 
     const getStatus = useCallback(() => {
@@ -43,7 +68,7 @@ export default function Status() {
         setRam(formatBytes(value.stats.memory.used));
         setPlayer(value.stats.players.toLocaleString());
         setActivePlayer(value.stats.playingPlayers.toLocaleString());
-
+        setUptime(convertUptime(value.stats.uptime));
 
         if (value.hstudio.main.error === 500) {
             setHStudioMainVersion("Unavailable");
@@ -99,6 +124,10 @@ export default function Status() {
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Active Player</p>
                             <p>{activePlayer}</p>
+                        </div>
+                        <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                            <p>Uptime</p>
+                            <p>{uptime}</p>
                         </div>
                     </div>
 
@@ -175,6 +204,10 @@ export default function Status() {
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Active Player</p>
                             <p>{activePlayer}</p>
+                        </div>
+                        <div className="bg-[#414141] m-2 p-8 text-center rounded">
+                            <p>Uptime</p>
+                            <p>{uptime}</p>
                         </div>
                     </div>
 
