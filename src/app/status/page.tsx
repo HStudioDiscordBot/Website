@@ -36,6 +36,8 @@ export default function Status() {
     const [mainShards, setMainShards] = useState([]);
     const [subShards, setSubShards] = useState([]);
 
+    const [isFirstFetch, setIsFirstFetch] = useState(true);
+
     function convertUptime(milliseconds: number) {
         let seconds = Math.floor(milliseconds / 1000);
         let minutes = Math.floor(seconds / 60);
@@ -61,21 +63,37 @@ export default function Status() {
     }
 
     const getStatus = useCallback(() => {
+        if (isFirstFetch) {
+            Swal.fire({
+                icon: "info",
+                title: currentLanguage === "thai" ? "กำลังโหลดสถานะบอท" : "Loading Bot Status",
+                text: currentLanguage === "thai" ? "กรุณารอสักครู่" : "Please wait a moment",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showConfirmButton: false
+            });
+        }
+
         fetch("https://hstudio-api.hewkawar.xyz/info")
             .then((res) => res.json())
-            .then((value) => updateStatus(value)).catch((err) => {
+            .then((value) => {
+                updateStatus(value);
+                Swal.close();
+                setIsFirstFetch(false);
+            })
+            .catch((err) => {
                 Swal.fire({
-                  icon: "error",
-                  title: currentLanguage == "thai" ? "ไม่สามารถดึงข้อมูลบอทได้" : "Unable to retrieve bot information",
-                  text: currentLanguage == "thai" ? "กรุณาลองอีกครั้งภายหลัง" : "Please try again later.",
-                  confirmButtonText: currentLanguage == "thai" ? "ยืนยัน" : "Confirm",
-                  confirmButtonColor: "rgb(59 130 246)",
-                  willClose: ((popup) => {
-                    router.push("/")
-                  })
+                    icon: "error",
+                    title: currentLanguage === "thai" ? "ไม่สามารถดึงข้อมูลบอทได้" : "Unable to retrieve bot information",
+                    text: currentLanguage === "thai" ? "กรุณาลองอีกครั้งภายหลัง" : "Please try again later.",
+                    confirmButtonText: currentLanguage === "thai" ? "ยืนยัน" : "Confirm",
+                    confirmButtonColor: "rgb(59 130 246)",
+                    willClose: () => {
+                        router.push("/");
+                    }
                 });
-              });
-    }, []);
+            });
+    }, [isFirstFetch, currentLanguage, router, updateStatus]);
 
     function updateStatus(value: any) {
         setServerName(value.server.name);
