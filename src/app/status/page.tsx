@@ -1,5 +1,6 @@
 "use client";
 
+import { Skeleton } from "@mui/material";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -19,15 +20,15 @@ export default function Status() {
     const currentLanguage = getCookie("language");
     const router = useRouter();
 
-    const [serverName, setServerName] = useState("Loading...");
-    const [cpu, setCpu] = useState("Loading...");
-    const [ram, setRam] = useState("Loading...");
-    const [player, setPlayer] = useState("Loading...");
-    const [activePlayer, setActivePlayer] = useState("Loading...");
-    const [uptime, setUptime] = useState("Loading...");
+    const [serverName, setServerName] = useState("");
+    const [cpu, setCpu] = useState("");
+    const [ram, setRam] = useState("");
+    const [player, setPlayer] = useState("");
+    const [activePlayer, setActivePlayer] = useState("");
+    const [uptime, setUptime] = useState("");
 
-    const [mainVersion, setHStudioMainVersion] = useState("Loading...");
-    const [subVersion, setHStudioSubVersion] = useState("Loading...");
+    const [mainVersion, setHStudioMainVersion] = useState("");
+    const [subVersion, setHStudioSubVersion] = useState("");
 
     const [mainError, setMainError] = useState(false);
     const [subError, setSubError] = useState(false);
@@ -121,33 +122,33 @@ export default function Status() {
                     <div className="flex flex-wrap justify-center">
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>เซิร์ฟเวอร์</p>
-                            <p>{serverName}</p>
+                            <p>{serverName ? serverName : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>CPU</p>
-                            <p>{cpu}</p>
+                            <p>{cpu ? cpu : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>RAM</p>
-                            <p>{ram}</p>
+                            <p>{ram ? ram : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Player</p>
-                            <p>{player}</p>
+                            <p>{player ? player : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Active Player</p>
-                            <p>{activePlayer}</p>
+                            <p>{activePlayer ? activePlayer : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
                             <p>Uptime</p>
-                            <p>{uptime}</p>
+                            <p>{uptime ? uptime : (<Skeleton variant="text" width={100} height={50} />)}</p>
                         </div>
                     </div>
 
                     <div className="my-5">
                         <div className="text-center">
-                            <h1 className="text-2xl lg:text-4xl mb-5">HStudio Main (เวอร์ชั่น {mainVersion})</h1>
+                            <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio Main (เวอร์ชั่น&nbsp;{mainVersion ? mainVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
                             <div className="flex justify-center">
                                 {mainError ? (
                                     <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
@@ -169,7 +170,7 @@ export default function Status() {
                             </div>
                         </div>
                         <div className="text-center">
-                            <h1 className="text-2xl lg:text-4xl mb-5">HStudio 1 (เวอร์ชั่น {subVersion})</h1>
+                            <h1 className="text-2xl lg:text-4xl mb-5 flex justify-center">HStudio 1 (เวอร์ชั่น&nbsp;{subVersion ? subVersion : (<span><Skeleton variant="text" width={100} height={50} /></span>)})</h1>
                             <div className="flex justify-center">
                                 {subError ? (
                                     <div className="bg-[#414141] text-center py-5 px-10 rounded m-5">
