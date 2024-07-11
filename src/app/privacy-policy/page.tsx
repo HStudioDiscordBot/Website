@@ -18,13 +18,13 @@ export default function PrivacyPolicy() {
                                 <li>จำนวนผู้ใช้งานบอท</li>
                                 <li>ห้องดิสที่บอทอยู่</li>
                                 <li>จำนวนการใช้งานบอท ณ ขณะนั้น</li>
-                                <li>ข้อมูลของผู้ใช้งานบอทและข้อมูลดิสที่บอทอยู่แค่ไอดีเท่านั้น</li>
+                                <li>ข้อมูลของผู้ใช้งานบอทและข้อมูลดิสที่บอทอยู่</li>
                                 <li>ข้อมูลการใช้งานคำสั่งเพลง เช่น Platforms ที่เล่นเยอะสุด (เฉพาะบอทเพลง)</li>
                             </ul>
                             <h3 className="text-xl lg:text-2xl mt-5">ทางเราจะไม่เก็บข้อมูล</h3>
                             <ul className="list-disc ml-8">
                                 <li>ข้อความที่ส่งในห้องดิสที่ HStudio สามารถมองเห็นได้</li>
-                                <li>ข้อมูลผู้ที่ใช้งานบอทและดิสนอกเหนือจากไอดี</li>
+                                <li>ข้อมูลผู้ที่ใช้งานบอท</li>
                             </ul>
                         </div>
                     </>
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
                                 <li>The number of people using the bot.</li>
                                 <li>The number of servers the bot is in.</li>
                                 <li>Real-time data of the number of people who use it at that current time.</li>
-                                <li>User ID and Server ID.</li>
+                                <li>User and Server.</li>
                                 <li>The number of commands has been issued.</li>
                             </ul>
                             <h3 className="text-xl lg:text-2xl mt-5">We will not collect the following data.</h3>
