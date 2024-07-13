@@ -28,6 +28,13 @@ export default function Invite() {
                                     <Link href="https://discord.com/oauth2/authorize?client_id=1140130682094497823" target="_blank" className="text-[#7DB1ED] w-[120px] bg-[#3d4c61] py-1 px-2 rounded hover:bg-[#475870] transition-colors duration-150">เชิญ HStudio (1)</Link>
                                 </div>
                             </div>
+                            <div className="bg-[#414141] p-5 flex rounded m-5">
+                                <img src="/profile/Publisher.png" alt="Publisher" className="w-[100px] rounded-full" />
+                                <div className="flex flex-col justify-around ml-5 text-center">
+                                    <p className="text-2xl">Publisher</p>
+                                    <Link href="https://discord.com/oauth2/authorize?client_id=1256905053160083528" target="_blank" className="text-[#7DB1ED] w-[120px] bg-[#3d4c61] py-1 px-2 rounded hover:bg-[#475870] transition-colors duration-150">เชิญ Publisher</Link>
+                                </div>
+                            </div>
                         </div>
                     </>
                 ) : (
@@ -47,6 +54,13 @@ export default function Invite() {
                                 <div className="flex flex-col justify-around ml-5 text-center">
                                     <p className="text-2xl">HStudio (1)</p>
                                     <Link href="https://discord.com/oauth2/authorize?client_id=1140130682094497823" target="_blank" className="text-[#7DB1ED] w-[120px] bg-[#3d4c61] py-1 px-2 rounded hover:bg-[#475870] transition-colors duration-150">Invite HStudio (1)</Link>
+                                </div>
+                            </div>
+                            <div className="bg-[#414141] p-5 flex rounded m-5">
+                                <img src="/profile/Publisher.png" alt="Publisher" className="w-[100px] rounded-full" />
+                                <div className="flex flex-col justify-around ml-5 text-center">
+                                    <p className="text-2xl">Publisher</p>
+                                    <Link href="https://discord.com/oauth2/authorize?client_id=1256905053160083528" target="_blank" className="text-[#7DB1ED] w-[120px] bg-[#3d4c61] py-1 px-2 rounded hover:bg-[#475870] transition-colors duration-150">Invite Publisher</Link>
                                 </div>
                             </div>
                         </div>
