@@ -64,7 +64,7 @@ export default function Status() {
         return result.trim().replace(/,$/, '');
     }
 
-    const getStatus = useCallback(() => {
+    async function getStatus() {
         if (isFirstFetch) {
             Swal.fire({
                 icon: "info",
@@ -95,7 +95,7 @@ export default function Status() {
                     }
                 });
             });
-    }, [isFirstFetch, currentLanguage, router, updateStatus]);
+    };
 
     function updateStatus(value: any) {
         setServerName(value.server.name);
@@ -126,10 +126,7 @@ export default function Status() {
 
     useEffect(() => {
         getStatus();
-        const interval = setInterval(getStatus, 5000);
-
-        return () => clearInterval(interval);
-    }, [getStatus]);
+    }, []);
 
     return (
         <>
