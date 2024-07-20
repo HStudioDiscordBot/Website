@@ -130,7 +130,7 @@ export default function Status() {
                     <title>สถานะบอท | HStudio</title>
                     <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
                         <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">สถานะบอท</h1>
-                        <button onClick={getStatus} className="p-3 bg-blue-500/10 rounded hover:bg-blue-500/30 duration-150 transition-colors">ซิงค์สถานะบอท</button>
+                        <button onClick={getStatus} className="p-3 mt-3 bg-blue-500/10 rounded hover:bg-blue-500/30 duration-150 transition-colors">ซิงค์สถานะบอท</button>
                     </div>
                     <div className="flex flex-wrap justify-center">
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
@@ -175,7 +175,7 @@ export default function Status() {
                     <title>Status | HStudio</title>
                     <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
                         <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">Status</h1>
-                        <button onClick={getStatus} className="p-3 bg-blue-500/10 rounded hover:bg-blue-500/30 duration-150 transition-colors">Sync status</button>
+                        <button onClick={getStatus} className="p-3 mt-3 bg-blue-500/10 rounded hover:bg-blue-500/30 duration-150 transition-colors">Sync status</button>
                     </div>
                     <div className="flex flex-wrap justify-center">
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
