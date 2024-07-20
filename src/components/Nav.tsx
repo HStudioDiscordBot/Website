@@ -110,7 +110,7 @@ export default function Nav() {
                                     <button className="p-3 hover:bg-[#333333]" onClick={() => logout()}>Logout</button>
                                 </div>
                             </>
-                        ) : (<button onClick={() => router.push("https://discord.com/oauth2/authorize?client_id=1105873690022924450&response_type=code&redirect_uri=https%3A%2F%2Fhstudio.hewkawar.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+email+guilds")} className="mt-5 md:mt-0 px-3 bg-blue-500 p-2 rounded">{currentLanguage == "thai" ? "เข้าสู่ระบบด้วย Discord" : "Login with Discord"}</button>) : (<Skeleton variant="rounded" width={170} height={40} />)}
+                        ) : (<button onClick={() => router.push("https://discord.com/oauth2/authorize?client_id=1105873690022924450&response_type=code&redirect_uri=https%3A%2F%2Fhstudio.hewkawar.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+email+guilds")} className="mt-5 text-nowrap md:mt-0 px-3 bg-blue-500 p-2 rounded">{currentLanguage == "thai" ? "เข้าสู่ระบบด้วย Discord" : "Login with Discord"}</button>) : (<Skeleton variant="rounded" width={170} height={40} />)}
                     </div>
 
                 </div>
