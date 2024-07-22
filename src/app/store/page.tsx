@@ -17,12 +17,24 @@ export default function Store() {
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
+    Swal.fire({
+      icon: "info",
+      title: currentLanguage === "thai" ? "กำลังโหลดรายการสินค้า" : "Loading items from store",
+      text: currentLanguage === "thai" ? "กรุณารอสักครู่" : "Please wait a moment",
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      showConfirmButton: false
+    });
+
     fetch("https://hstudio-api.hewkawar.xyz/store/items", {
       headers: {
         Authorization: `UserId ${account.id}`
       }
     }).then((val) => val.json())
-      .then((data) => setItemList(data))
+      .then((data) => {
+        Swal.close();
+        setItemList(data);
+      })
       .catch((err) => {
         Swal.fire({
           icon: "error",
@@ -242,7 +254,7 @@ export default function Store() {
 
       <div className='mt-10 flex flex-wrap justify-center'>
         {
-          itemList.length == 0 ? (<p>Loading items from store</p>) : (<>
+          itemList.length == 0 ? (<></>) : (<>
             {
               itemList.map((value: any, index) => (
                 <div className="card bg-[#414141] p-4 rounded text-center m-3" key={index}>

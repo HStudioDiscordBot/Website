@@ -83,20 +83,20 @@ export default function Nav() {
 
     return (
         <nav className="p-5 flex justify-between">
-            <div className="text-center md:w-full">
-                <div className={isOpen ? "hidden md:flex md:justify-between" : "flex flex-col md:flex-row md:justify-between items-center absolute top-0 right-0 h-full w-[90vw] bg-[#333333] md:relative md:bg-transparent md:w-auto"}>
-                    <ul className="text-white items-center flex flex-col mt-10 justify-center md:flex-row md:flex-wrap md:mt-0">
-                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/">{currentLanguage == "thai" ? "หน้าหลัก" : "Home"}</Link></li>
-                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/store">{currentLanguage == "thai" ? "ร้านค้า" : "Store"}</Link></li>
-                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/status">{currentLanguage == "thai" ? "สถานะบอท" : "Status"}</Link></li>
-                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/terms-of-service">{currentLanguage == "thai" ? "ข้อกำหนดในการให้บริการ" : "Terms of Service"}</Link></li>
-                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/privacy-policy">{currentLanguage == "thai" ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy"}</Link></li>
-                        <li className="py-5 md:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 md:p-3" href="/contact">{currentLanguage == "thai" ? "ติดต่อ" : "Contact"}</Link></li>
+            <div className="text-center lg:w-full">
+                <div className={isOpen ? "hidden lg:flex lg:justify-between" : "flex flex-col lg:flex-row lg:justify-between items-center absolute top-0 right-0 h-full w-[90vw] bg-[#333333] lg:relative lg:bg-transparent lg:w-auto"}>
+                    <ul className="text-white items-center flex flex-col mt-10 justify-center lg:flex-row lg:flex-wrap lg:mt-0">
+                        <li className="py-5 lg:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 lg:p-3" href="/">{currentLanguage == "thai" ? "หน้าหลัก" : "Home"}</Link></li>
+                        <li className="py-5 lg:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 lg:p-3" href="/store">{currentLanguage == "thai" ? "ร้านค้า" : "Store"}</Link></li>
+                        <li className="py-5 lg:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 lg:p-3" href="/status">{currentLanguage == "thai" ? "สถานะบอท" : "Status"}</Link></li>
+                        <li className="py-5 lg:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 lg:p-3" href="/terms-of-service">{currentLanguage == "thai" ? "ข้อกำหนดในการให้บริการ" : "Terms of Service"}</Link></li>
+                        <li className="py-5 lg:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 lg:p-3" href="/privacy-policy">{currentLanguage == "thai" ? "นโยบายความเป็นส่วนตัว" : "Privacy Policy"}</Link></li>
+                        <li className="py-5 lg:py-0"><Link className="p-5 hover:text-[#5c9ae0] transition-colors duration-150 lg:p-3" href="/contact">{currentLanguage == "thai" ? "ติดต่อ" : "Contact"}</Link></li>
                     </ul>
 
-                    <div className="text-white items-center text-center flex flex-col md:flex-row w-1/4 md:justify-end">
-                        <button onClick={() => setIsOpenLanguageSelector(!isOpenLanguageSelector)} className="px-3 py-4 md:py-0 hover:text-[#5c9ae0] transition-colors duration-150 ">Language</button>
-                        <div id="language-content" className={isOpenLanguageSelector ? "md:absolute rounded bg-[#414141] min-w-40 overflow-auto z-10 flex flex-col md:right-40 md:mt-32 shadow-lg" : "hidden"}>
+                    <div className="text-white items-center text-center flex flex-col lg:flex-row w-1/4 lg:justify-end">
+                        <button onClick={() => setIsOpenLanguageSelector(!isOpenLanguageSelector)} className="px-3 py-4 lg:py-0 hover:text-[#5c9ae0] transition-colors duration-150 ">Language</button>
+                        <div id="language-content" className={isOpenLanguageSelector ? "lg:absolute rounded bg-[#414141] min-w-40 overflow-auto z-10 flex flex-col lg:right-40 lg:mt-32 shadow-lg" : "hidden"}>
                             <button className="p-3 hover:bg-[#333333]" onClick={() => selectLanguage("thai")}>ไทย</button>
                             <button className="p-3 hover:bg-[#333333]" onClick={() => selectLanguage("english")}>English</button>
                         </div>
@@ -106,16 +106,16 @@ export default function Nav() {
                                     <img className="w-10 rounded-full" src={account.avatar ? `https://cdn.discordapp.com/avatars/${account.id}/${account.avatar}.png` : `https://cdn.discordapp.com/embed/avatars/${(account.id >> 22) % 6}.png`} alt={account.username} />
                                     <p className="px-2">{account.global_name}</p>
                                 </div>
-                                <div id="profile-content" className={isOpenProfile ? "md:absolute rounded bg-[#414141] min-w-40 overflow-auto z-10 flex flex-col md:right-2 md:mt-32 shadow-lg" : "hidden"}>
+                                <div id="profile-content" className={isOpenProfile ? "lg:absolute rounded bg-[#414141] min-w-40 overflow-auto z-10 flex flex-col lg:right-2 lg:mt-32 shadow-lg" : "hidden"}>
                                     <button className="p-3 hover:bg-[#333333]" onClick={() => logout()}>Logout</button>
                                 </div>
                             </>
-                        ) : (<button onClick={() => router.push("https://discord.com/oauth2/authorize?client_id=1105873690022924450&response_type=code&redirect_uri=https%3A%2F%2Fhstudio.hewkawar.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+email+guilds")} className="mt-5 md:mt-0 px-3 bg-blue-500 p-2 rounded">{currentLanguage == "thai" ? "เข้าสู่ระบบด้วย Discord" : "Login with Discord"}</button>) : (<Skeleton variant="rounded" width={170} height={40} />)}
+                        ) : (<button onClick={() => router.push("https://discord.com/oauth2/authorize?client_id=1105873690022924450&response_type=code&redirect_uri=https%3A%2F%2Fhstudio.hewkawar.xyz%2Fauth%2Fdiscord%2Fcallback&scope=identify+email+guilds")} className="mt-5 text-nowrap lg:mt-0 px-3 bg-blue-500 p-2 rounded">{currentLanguage == "thai" ? "เข้าสู่ระบบด้วย Discord" : "Login with Discord"}</button>) : (<Skeleton variant="rounded" width={170} height={40} />)}
                     </div>
 
                 </div>
 
-                <button onClick={togglePanel} className="absolute text-white top-4 right-4 md:hidden">
+                <button onClick={togglePanel} className="absolute text-white top-4 right-4 lg:hidden">
                     <svg className="block h-8 w-8 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>

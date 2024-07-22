@@ -38,8 +38,6 @@ export default function Status() {
     const [mainShards, setMainShards] = useState<Shard[]>([]);
     const [subShards, setSubShards] = useState<Shard[]>([]);
 
-    const [isFirstFetch, setIsFirstFetch] = useState(true);
-
     function convertUptime(milliseconds: number) {
         let seconds = Math.floor(milliseconds / 1000);
         let minutes = Math.floor(seconds / 60);
@@ -64,24 +62,21 @@ export default function Status() {
         return result.trim().replace(/,$/, '');
     }
 
-    const getStatus = useCallback(() => {
-        if (isFirstFetch) {
-            Swal.fire({
-                icon: "info",
-                title: currentLanguage === "thai" ? "กำลังโหลดสถานะบอท" : "Loading Bot Status",
-                text: currentLanguage === "thai" ? "กรุณารอสักครู่" : "Please wait a moment",
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                showConfirmButton: false
-            });
-        }
+    async function getStatus() {
+        Swal.fire({
+            icon: "info",
+            title: currentLanguage === "thai" ? "กำลังโหลดสถานะบอท" : "Loading Bot Status",
+            text: currentLanguage === "thai" ? "กรุณารอสักครู่" : "Please wait a moment",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            showConfirmButton: false
+        });
 
         fetch("https://hstudio-api.hewkawar.xyz/info")
             .then((res) => res.json())
             .then((value) => {
                 updateStatus(value);
                 Swal.close();
-                setIsFirstFetch(false);
             })
             .catch((err) => {
                 Swal.fire({
@@ -95,7 +90,7 @@ export default function Status() {
                     }
                 });
             });
-    }, [isFirstFetch, currentLanguage, router, updateStatus]);
+    };
 
     function updateStatus(value: any) {
         setServerName(value.server.name);
@@ -126,10 +121,7 @@ export default function Status() {
 
     useEffect(() => {
         getStatus();
-        const interval = setInterval(getStatus, 5000);
-
-        return () => clearInterval(interval);
-    }, [getStatus]);
+    }, []);
 
     return (
         <>
@@ -138,6 +130,7 @@ export default function Status() {
                     <title>สถานะบอท | HStudio</title>
                     <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
                         <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">สถานะบอท</h1>
+                        <button onClick={getStatus} className="p-3 mt-3 bg-blue-500/10 rounded hover:bg-blue-500/30 duration-150 transition-colors">ซิงค์สถานะบอท</button>
                     </div>
                     <div className="flex flex-wrap justify-center">
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
@@ -182,6 +175,7 @@ export default function Status() {
                     <title>Status | HStudio</title>
                     <div className="w-[95vw] lg:w-[70vw] text-wrap text-center mt-5 mb-3">
                         <h1 className="text-2xl lg:text-4xl text-[#7DB1ED]">Status</h1>
+                        <button onClick={getStatus} className="p-3 mt-3 bg-blue-500/10 rounded hover:bg-blue-500/30 duration-150 transition-colors">Sync status</button>
                     </div>
                     <div className="flex flex-wrap justify-center">
                         <div className="bg-[#414141] m-2 p-8 text-center rounded">
